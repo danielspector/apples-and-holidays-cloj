@@ -10,7 +10,7 @@
   (filter #(= target %) fruit-arr)
   )
 
-(def holiday-supplies 
+(def holiday-supplies
   {:winter {
             :christmas ["Lights" "Wreath"]
             :new-years ["Party Hats"]}
@@ -36,6 +36,9 @@
  (flatten (vals (holiday-supplies :winter))))
 
 (defn all-bbq-holidays []
+  (keys (select-keys mapped
+    (for [[k v] mapped :when 
+      (some #{"BBQ"} v)] k))) 
   )
 
 (defn -main
